@@ -20,6 +20,8 @@ import org.whispersystems.libaxolotl.InvalidMacException;
 import org.whispersystems.libaxolotl.InvalidMessageException;
 import org.whispersystems.textsecure.internal.util.Util;
 
+import org.whispersystems.textsecure.api.util.ArrayCompat;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -135,7 +137,7 @@ public class AttachmentCipherInputStream extends FileInputStream {
     if (null != overflowBuffer) {
       if (overflowBuffer.length > length) {
         System.arraycopy(overflowBuffer, 0, buffer, offset, length);
-        overflowBuffer = Arrays.copyOfRange(overflowBuffer, length, overflowBuffer.length);
+        overflowBuffer = ArrayCompat.copyOfRange(overflowBuffer, length, overflowBuffer.length);
         return length;
       } else if (overflowBuffer.length == length) {
         System.arraycopy(overflowBuffer, 0, buffer, offset, length);
@@ -172,7 +174,7 @@ public class AttachmentCipherInputStream extends FileInputStream {
         readLength += outputLen;
       } else {
         System.arraycopy(transientBuffer, 0, buffer, offset, length);
-        overflowBuffer = Arrays.copyOfRange(transientBuffer, length, outputLen);
+        overflowBuffer = ArrayCompat.copyOfRange(transientBuffer, length, outputLen);
         readLength += length;
       }
       return readLength;
