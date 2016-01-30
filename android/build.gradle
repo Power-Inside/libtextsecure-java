@@ -36,7 +36,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-
+    lintOptions {
+        disable 'InvalidPackage'
+    }
     libraryVariants.all { variant ->
         variant.outputs.each { output ->
             def outputFile = output.outputFile
