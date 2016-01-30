@@ -15,7 +15,7 @@ repositories {
 dependencies {
     compile 'com.google.protobuf:protobuf-java:2.5.0'
     compile 'com.googlecode.libphonenumber:libphonenumber:7.1.0'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2' // trying old one to see if fixes anything
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.0'
 
     compile "org.whispersystems:axolotl-java:${axolotl_version}"
     compile 'com.squareup.okhttp:okhttp:2.2.0'
